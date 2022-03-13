@@ -10,11 +10,18 @@
 name: ImmortalWrt 18.06 CI
 
 on:
-  push:
-    branches: 
-      - main
-    paths: 
-      - 'makeconfig.d/18.06/**'
+  #push:
+    #branches: 
+      #- main
+    #paths: 
+      #- 'makeconfig.d/18.06/**'
+      
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: 'no'    
       
   schedule: 
     - cron: 3 15 * * 5
